@@ -1,7 +1,6 @@
 
     var listener = new window.keypress.Listener();
-
-
+    
     var map3d = [
         [
             [0, 0, 0, 0, 0, 0, 0, 0],
@@ -174,7 +173,7 @@
     var width = map3d[0][0].length;
 
     // DYNAMICALLY ADDS FLOOR GRID BUTTONS AND OTHER GRAPHIC
-
+    
     for (i = 0; i < height * width; i++) {
         $("#grid_2d").append("<div class='grid_2d_cell'></div>");
     }
@@ -190,7 +189,7 @@
     function randBetween(min, max) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
-
+    
     function gridToIso(input) {
         //  screen.x = (map.x - map.y) * TILE_WIDTH_HALF;
         //  screen.y = (map.x + map.y) * TILE_HEIGHT_HALF;
@@ -204,9 +203,9 @@
         return output;
     }
 
-    // USED BY drawIso() TO DRAW ONE CUBE AT A TIME.
+    // USED BY drawIso() TO DRAW ONE CUBE AT A TIME. 
     // CAN BE CALLED DIRECTLY TO DRAW CUBES BUT WILL CREATE LAYERING ARTIFACT
-
+    
     function drawCube(gridCoords, materialID) {
         if (materialID == 0) {
             return false;
@@ -224,10 +223,10 @@
         $("#face_selector").css("left", 0);
         $("#face_selector").css("top", 0);
     }
-
+    
     // CLEARS AND DRAW ENTIRE MAP USING DATA FROM map3d ARRAY.
     // SHOULD BE CALLED AFTER UPDATING ARRAY
-
+    
     function drawIso() {
         $("#draw_wrapper").empty();
         clearFaceSelector();
@@ -254,12 +253,12 @@
             }
         }
     }
-
-    // USED TO UPDATE A VALUE FROM
-
+    
+    // USED TO UPDATE A VALUE FROM 
+    
     function updateArray(targetArray, gridCoords, materialID) {
-        if (gridCoords.x < 0 ||
-            gridCoords.y < 0 ||
+        if (gridCoords.x < 0 || 
+            gridCoords.y < 0 || 
             gridCoords.z < 0 ||
             gridCoords.x > width - 1 ||
             gridCoords.y > height - 1 ||
@@ -271,7 +270,7 @@
             console.log("Location " + gridCoords.x + " " + gridCoords.y + " " + gridCoords.z + " successfully updated")
         }
     }
-
+    
     // USEFUL FOR PASSING 3D GRID COORDINATES TO ARRAY FUNCTIONS
 
     function gridCoords(x, y, z) {
@@ -300,7 +299,7 @@
             [2, 2, 2]
         ]
     ];
-
+    
     var template2 = [
         [
             [2, 2, 2],
@@ -313,7 +312,7 @@
             [2, 2, 2]
         ]
     ];
-
+    
     var template3 = [
         [
             [2, 1, 2],
@@ -343,9 +342,9 @@
         var xDnBound = tempDatum.x;
 
         var matches = [];
-
+        
         var count = 0;
-
+        
         for (z = 0; z < layers; z++) {
             for (y = 0; y < height; y++) {
                 for (x = 0; x < width; x++) {
@@ -394,17 +393,17 @@
                                         }
                                     }
                                 }
-
+                                
                                 if (matchStatus == false) {
                                     break;
                                 }
-
+                                
                             }
-
+                            
                             if (matchStatus == false) {
                                 break;
                             }
-
+                            
                         }
                         if (matchStatus == false) {
                             console.log(x + " " + y + " " + z + " disqualified");
@@ -439,7 +438,7 @@
         }
         drawIso();
     })
-
+    
     $("#search_c").click(function () {
         var matches = searchMap(map3d, template3, gridCoords(3, 3, 2), gridCoords(1, 1, 1));
         for (i = 0; i < matches.length; i++) {
@@ -600,11 +599,11 @@
         }
         drawIso();
     }
-
+    
     $("#clear_all").click(function () {
         clearAll()
     })
-
+    
     function update() {
         if (shiftPressed) {
             $("#cube_delete_icon").show();
@@ -612,17 +611,19 @@
             $("#cube_delete_icon").hide();
         }
     }
-
+    
     setInterval(update, 1);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // 
+    
 
-
-
-
-
-
-
-
-
-
-
-    //
